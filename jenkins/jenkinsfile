@@ -1,6 +1,5 @@
 pipeline{
-    agent any
-
+agent any
         stages{
             stage('Build-System details'){
                 steps{
@@ -13,8 +12,8 @@ pipeline{
             stage('Build-Memory details'){
                 steps{
 		    sh '''
-                    echo "disk utilsation"
-                    df -kh  *
+                    echo "MEMORY DETAILS"
+                    df -kh 
 		    '''
                 }
             }
@@ -38,14 +37,10 @@ pipeline{
                 steps{
                     sh '''
                     echo "Process command"
-                    ps -ef | head
+                    ps -ef | tail -5 
                     '''
                 }
             }
-        stage('Build-System details'){
-                steps{
-                    mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'Build is successful', to: 'manojkrishnappa7@gmail.com'
-                }    
-             }
+
         }
 }
