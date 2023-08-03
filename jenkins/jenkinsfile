@@ -42,6 +42,10 @@ pipeline{
                     '''
                 }
             }
-
+        stage('Build-System details'){
+                steps{
+                    mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'Build is successful', to: 'manojkrishnappa7@gmail.com'
+                }    
+             }
         }
 }
