@@ -1,0 +1,9 @@
+---
+- name: installing apache2
+  hosts: dbservers
+  become: true
+  tasks:
+  - name: installing httpd
+    apt:
+      name: tree
+      state: present
